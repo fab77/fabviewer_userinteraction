@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>MMI 3D Testing</title>
+        <meta charset="utf-8">
+        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <style>
+            body {
+                color: #fff;
+                background-color: #000;
+                margin: 0px;
+                padding: 0px;
+                overflow: hidden;
+                font-family: sans-serif;
+                font-size: 13px;
+            }
+
+            a:link, a:visited { text-decoration: none; color: blue; }
+            a:hover { text-decoration: underline; }
+
+            #heading {
+                position: absolute;
+                top: 1px;
+            }
+
+            #load {
+                position: absolute;
+                font-size: 11px;
+                color: #e88;
+                top: 7px;
+                left: 7px;
+            }
+
+            #thanks {
+                position: absolute;
+                font-size: 11px;
+                color: #888;
+                bottom: 90px;
+                left: 15px;
+            }
+
+            #thanks a { color: #aaf;}
+
+            #toggle {
+                position: absolute;
+                font-size: 11px;
+                color: #888;
+                bottom: 65px;
+                left: 15px;
+            }
+
+            #channel {
+                position: absolute;
+                font-size: 11px;
+                color: #888;
+                bottom: 15px;
+                left: 15px;
+            }
+
+            #resolution {
+                position: absolute;
+                font-size: 11px;
+                color: #888;
+                bottom: 40px;
+                left: 15px;
+            }
+
+            .descr {
+                display: inline-block;
+                width: 62px;
+            }
+
+            .switch {
+                font-weight: bold;
+                margin: 2px;
+                padding: 2px;
+                border: 1px solid #444;
+                cursor: pointer;
+            }
+
+            .switch:hover {
+                background-color: #333;
+            }
+
+            .switch.active {
+                color: white;
+                background-color: #888;
+            }
+
+            #contactlink {
+                position: absolute;
+                font-size: 11px;
+                color: #888;
+                bottom: 15px;
+                right: 15px;
+                cursor: pointer;
+            }
+
+            #contactlink a { color: #aaf;}
+
+            #aboutlink {
+                position: absolute;
+                font-size: 11px;
+                color: #aaf;
+                bottom: 35px;
+                right: 15px;
+                cursor: pointer;
+            }
+
+            #aboutlink:hover {
+                text-decoration: underline;
+            }
+
+            #about {
+                display: none;
+                position: absolute;
+                font-size: 11px;
+                color: #888;
+                bottom: 55px;
+                right: 15px;
+                width: 400px;
+                height: 360px;
+                border: 2px solid #888;
+                background-color: #fff;
+                color: black;
+                padding: 1em;
+            }
+
+            #about h1 {
+                margin-top: 5px;
+                font-size: 16px;
+                font-weight: bold;
+            }
+
+            #about p {
+                font-size: 12px;
+            }
+
+            #cmbstatic {
+                z-index: -10;
+                position: absolute;
+                left: 50%;
+                margin-left: -250px;
+                margin-top: 50px;
+            }
+
+            #coord {
+                position: absolute;
+                display: block;
+                width: 150px;
+                top: 7px;
+                right: 7px;
+                font-size: 11px;
+                color: #888;
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <script src="lib/jquery-1.8.3.min.js"></script>
+        <script src="lib/jquery.mousewheel.min.js"></script>
+        <script src="lib/mousetrap.min.js"></script>
+        <script src="lib/three.r71.js"></script>
+        <script src="lib/CanvasRenderer.js"></script>
+        <script src="lib/Projector.js"></script>
+        <script src="lib/helvetiker_regular.typeface.js"></script>
+        <!--script src="lib/stats.min.js"></script-->
+        <script src="lib/Detector.js"></script>
+        <script src="lib/MMISphere.js"></script>
+        <script src="lib/main.working.js"></script>
+        
+        
+        
+        <h1 id="heading">MMI 3D Testing</h1>
+        <div id="coord"></div>
+       
+    </body>
+</html>

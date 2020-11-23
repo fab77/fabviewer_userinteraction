@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>The cosmic microwave background</title>
+        <meta charset="utf-8">
+        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <style>
+            body {
+                color: #fff;
+                background-color: #000;
+                margin: 0px;
+                padding: 0px;
+                overflow: hidden;
+                font-family: sans-serif;
+                font-size: 13px;
+            }
+
+            a:link, a:visited { text-decoration: none; color: blue; }
+            a:hover { text-decoration: underline; }
+
+            #heading {
+                position: absolute;
+                top: 1px;
+            }
+
+            #load {
+                position: absolute;
+                font-size: 11px;
+                color: #e88;
+                top: 7px;
+                left: 7px;
+            }
+
+            #thanks {
+                position: absolute;
+                font-size: 11px;
+                color: #888;
+                bottom: 90px;
+                left: 15px;
+            }
+
+            #thanks a { color: #aaf;}
+
+            #toggle {
+                position: absolute;
+                font-size: 11px;
+                color: #888;
+                bottom: 65px;
+                left: 15px;
+            }
+
+            #channel {
+                position: absolute;
+                font-size: 11px;
+                color: #888;
+                bottom: 15px;
+                left: 15px;
+            }
+
+            #resolution {
+                position: absolute;
+                font-size: 11px;
+                color: #888;
+                bottom: 40px;
+                left: 15px;
+            }
+
+            .descr {
+                display: inline-block;
+                width: 62px;
+            }
+
+            .switch {
+                font-weight: bold;
+                margin: 2px;
+                padding: 2px;
+                border: 1px solid #444;
+                cursor: pointer;
+            }
+
+            .switch:hover {
+                background-color: #333;
+            }
+
+            .switch.active {
+                color: white;
+                background-color: #888;
+            }
+
+            #contactlink {
+                position: absolute;
+                font-size: 11px;
+                color: #888;
+                bottom: 15px;
+                right: 15px;
+                cursor: pointer;
+            }
+
+            #contactlink a { color: #aaf;}
+
+            #aboutlink {
+                position: absolute;
+                font-size: 11px;
+                color: #aaf;
+                bottom: 35px;
+                right: 15px;
+                cursor: pointer;
+            }
+
+            #aboutlink:hover {
+                text-decoration: underline;
+            }
+
+            #about {
+                display: none;
+                position: absolute;
+                font-size: 11px;
+                color: #888;
+                bottom: 55px;
+                right: 15px;
+                width: 400px;
+                height: 360px;
+                border: 2px solid #888;
+                background-color: #fff;
+                color: black;
+                padding: 1em;
+            }
+
+            #about h1 {
+                margin-top: 5px;
+                font-size: 16px;
+                font-weight: bold;
+            }
+
+            #about p {
+                font-size: 12px;
+            }
+
+            #cmbstatic {
+                z-index: -10;
+                position: absolute;
+                left: 50%;
+                margin-left: -250px;
+                margin-top: 50px;
+            }
+
+            #coord {
+                position: absolute;
+                display: block;
+                width: 150px;
+                top: 7px;
+                right: 7px;
+                font-size: 11px;
+                color: #888;
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <script src="lib/jquery-1.8.3.min.js"></script>
+        <script src="lib/jquery.mousewheel.min.js"></script>
+        <script src="lib/mousetrap.min.js"></script>
+        <script src="lib/three.min.js"></script>
+        <!--script src="lib/stats.min.js"></script-->
+        <script src="lib/Detector.js"></script>
+
+        <script src="lib/main.js"></script>
+
+        <h1 id="heading">The cosmic microwave background</h1>
+
+        <div id="thanks">Data from the <a target="blank" href="http://www.esa.int/Our_Activities/Space_Science/Planck">Planck mission</a></div>
+        <div id="toggle"><span class="descr">Toggle:</span> <span class="switch galactic">galactic</span> <span class="switch ecliptic">ecliptic</span> <span class="switch xhair">crosshair</span></div>
+        <div id="channel"><span class="descr">Channel:</span> <span class="switch cmb" title="Inpainted CMB combination">CMB</span> or GHz <span class="switch">30</span> <span class="switch">44</span> <span class="switch">70</span> <span class="switch">100</span> <span class="switch">143</span> <span class="switch">217</span> <span class="switch">353</span> </div>
+        <div id="resolution"><span class="descr">Resolution:</span> <span class="switch low">low</span> <span class="switch medium">medium</span> <span class="switch high">high</span></div>
+        <div id="coord"></div>
+        <!--div id="load">Server is experiencing high load, please be patient!</div-->
+
+        <div id="contactlink">
+            Made by <a target="blank" href="http://dpgeorge.net/">Damien P. George</a>
+        </div>
+
+        <div id="aboutlink"> Information </div>
+        <div id="about">
+            <h1>The cosmic microwave background</h1>
+
+            <p>
+            This is the raw data from the <a href="http://www.esa.int/Our_Activities/Space_Science/Planck">Planck mission</a>
+            of the intensity fluctuations in the <a href="https://en.wikipedia.org/wiki/Cosmic_microwave_background">cosmic microwave background</a>.
+            At the highest resolution it includes 50 million pixels of information.
+            </p>
+
+            <p>
+            For a selection of scientific papers on the subject see <a href="http://pscp.me/PqqXwJO1">this paperscape graph</a>.
+            For some commentary on Planck's results, try the blog entries
+            <a href="http://scienceblogs.com/startswithabang/2013/03/21/what-the-entire-universe-is-made-of-thanks-to-planck/">here</a>,
+            <a href="http://profmattstrassler.com/2013/03/21/the-universe-according-to-planck-the-satellite/">here</a> or
+            <a href="http://resonaances.blogspot.co.uk/2013/03/the-universe-after-planck.html">here</a>.
+            See the <a href="http://astrog80.astro.cf.ac.uk/Planck/Chromoscope/index_comp.html">Planck Chromoscope</a> for flat 2D maps.
+            </p>
+
+            <p>
+            You can use your mouse to control the view: click-drag will change the latitude/longitude, double click zooms in, and mouse scroll-wheel zooms in and out.
+            </p>
+
+            <p>
+            The following key bindings are also available: left, right, up, down (scroll the view), +, - (zoom), r (reset view), g, e, x (toggle items).
+            </p>
+
+            <p>
+            The <a href="http://pla.esac.esa.int/pla/aio/planckProducts.html">raw data</a>
+            is tiled over a sphere using the <a href="http://healpix.sourceforge.net/">Healpix scheme</a>.
+            WebGL and the <a href="http://mrdoob.github.com/three.js/">three.js</a> library are used for rendering.
+            </p>
+
+            <p>
+            For questions about this website you can <a target="blank" href="http://dpgeorge.net/">contact me</a>.
+            This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/">Creative Commons Attribution-NonCommercial 3.0 Unported License</a>.
+            </p>
+        </div>
+    </body>
+</html>
